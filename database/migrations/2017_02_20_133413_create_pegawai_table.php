@@ -14,11 +14,12 @@ class CreatePegawaiTable extends Migration
     public function up()
     {
         Schema::create('pegawai', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
             $table->string('nama',255);
             $table->string('email',255);
             $table->integer('level');
             $table->timestamps();
+            $table->primary('id');
         });
     }
 

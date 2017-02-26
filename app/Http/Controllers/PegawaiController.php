@@ -9,19 +9,16 @@ use App\Pegawai;
 use Request;
 use Response;
 use View;
-use Illuminate\Support\Facades\Hash;
 
 
 class PegawaiController extends Controller
 {
    	public function index()
 	{
-//random id
-$hashed_random_id = Hash::make('1');
 
 		 // ambil semua data pegawai
 $pegawai = Pegawai::latest('created_at')->get();
-        return view('pegawai.index', compact('pegawai'))->with('hashed_random_id',$hashed_random_id);
+        return view('pegawai.index', compact('pegawai'));
 	}
 
 
