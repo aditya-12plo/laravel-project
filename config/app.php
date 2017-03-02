@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +231,8 @@ return [
          'Html' => Collective\Html\HtmlFacade::class,
          //untuk id generate
     'Uuid' => Webpatser\Uuid\Uuid::class,
+    //admin themplate
+    'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
     ],
 
 

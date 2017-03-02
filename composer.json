@@ -1,11 +1,19 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "LJ Hooker Harapan Indah",
+    "description": "jual rumah didaerah bekasi",
+    "keywords": ["nugroho aditya", "nugroho", "aditya"],
     "license": "MIT",
     "type": "project",
+      "authors": [
+    {
+      "name": "Nugroho Aditya",
+      "email": "nugroho.adty@gmail.com",
+      "homepage": "http://nugrohoaditya.xyz"
+    }
+  ],
     "require": {
         "php": ">=5.6.4",
+        "acacha/admin-lte-template-laravel": "4.*",
         "illuminate/html": "^5.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",

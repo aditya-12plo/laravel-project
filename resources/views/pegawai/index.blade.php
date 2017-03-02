@@ -127,7 +127,7 @@
 
 
 <td>
-                <a class="btn btn-small btn-success" href="{{ URL('pegawai/' . $value->id) }}">Tampilkan Data</a>
+                <a class="btn btn-small btn-success" href="{{ URL('pegawai/' . $value->nama .'/'. $value->id) }}">Tampilkan Data</a>
 
                 <a class="btn btn-small btn-warning" href="{{ URL('pegawai/' . $value->id . '/edit') }}">Ubah Data</a>
 

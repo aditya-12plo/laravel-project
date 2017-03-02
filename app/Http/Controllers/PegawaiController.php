@@ -28,7 +28,7 @@ $pegawai = Pegawai::latest('created_at')->get();
 	}
 
 
-public function show($id)
+public function show($nama,$id)
 	{
 		$pegawai = Pegawai::find($id);
 if ($pegawai === null) {
