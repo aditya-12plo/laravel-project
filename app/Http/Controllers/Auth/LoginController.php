@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
 class LoginController extends Controller
 {
     /*
@@ -18,11 +15,9 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
     use AuthenticatesUsers {
         attemptLogin as attemptLoginAtAuthenticatesUsers;
     }
-
     /**
      * Show the application's login form.
      *
@@ -30,16 +25,14 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('adminlte::auth.login');
+        return view('auth.login');
     }
-
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
@@ -49,7 +42,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-
     /**
      * Returns field name to use at login.
      *
@@ -59,7 +51,6 @@ class LoginController extends Controller
     {
         return config('auth.providers.users.field','email');
     }
-
     /**
      * Attempt to log the user into the application.
      *
@@ -74,7 +65,6 @@ class LoginController extends Controller
         }
         return false;
     }
-
     /**
      * Attempt to log the user into application using username as an email.
      *
@@ -87,6 +77,4 @@ class LoginController extends Controller
             ['email' => $request->input('username'), 'password' => $request->input('password')],
             $request->has('remember'));
     }
-
-
 }
