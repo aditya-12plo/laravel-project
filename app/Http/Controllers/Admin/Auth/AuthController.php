@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace laravel\Http\Controllers\Admin\Auth;
 
-use App\Admins;
+use laravel\Admins;
 use Validator;
-use App\Http\Controllers\Controller;
+use laravel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/admin/beranda';
 
     /**
      * Create a new authentication controller instance.
@@ -39,6 +39,7 @@ class AuthController extends Controller
     {
         $this->middleware('guest.admin', ['except' => 'logout']);
     }
+
 
     /**
      * Get a validator for an incoming registration request.

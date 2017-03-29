@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace laravel\Http\Controllers\Admin\Auth;
 
-use App\Http\Controllers\Controller;
+use laravel\Http\Controllers\Controller;
+use laravel\Admins;
+use Illuminate\Notifications\Notifiable;
+use Response,View,Input,Auth,Session,Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,8 +29,9 @@ class LoginController extends Controller
      *
      * @var string
      */
-protected $redirectTo = '/admin';
+protected $redirectTo = '/admin/beranda';
 protected $guard = 'admin';
+protected $redirectAfterLogout = '/admin';
     /**
      * Create a new controller instance.
      *
@@ -40,7 +44,24 @@ protected $guard = 'admin';
 
     public function showLoginForm()
     {
-        return view('admin.login');
+   return view('admin.login');
+    }
+
+        /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/admin');
     }
 
     /**
@@ -50,6 +71,7 @@ protected $guard = 'admin';
      */
     protected function guard()
     {
+        Session::flash('success', 'Anda Berhasil Login');
         return Auth::guard('admins');
     }
 }

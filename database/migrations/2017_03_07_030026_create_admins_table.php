@@ -18,11 +18,8 @@ class CreateAdminsTable extends Migration
             $table->string('nama',255);
             $table->string('email',255);
             $table->string('password',255);
-            $table->string('tlp1',14);
-            $table->string('tlp2',14);
-            $table->string('bio',255);
+            $table->string('tlp',14);
             $table->string('foto',255);
-            $table->string('banner',255);
             $table->rememberToken();
             $table->timestamps();
             $table->primary('id');

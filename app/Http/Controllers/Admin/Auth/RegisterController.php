@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace laravel\Http\Controllers\Admin\Auth;
 
-use App\Admin;
+use laravel\Admin;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
-use App\Http\Controllers\Controller;
+use laravel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.

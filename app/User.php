@@ -1,15 +1,15 @@
 <?php
 
-namespace App;
+namespace laravel;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Uuids;
+use Notifiable;
 
 class User extends Authenticatable
 {
-use Notifiable;
-use Uuids;
+
 
 public $incrementing = false;
 protected $table = 'users';

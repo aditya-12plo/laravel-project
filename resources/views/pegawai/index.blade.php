@@ -131,6 +131,9 @@
 
                 <a class="btn btn-small btn-warning" href="{{ URL('pegawai/' . $value->id . '/edit') }}">Ubah Data</a>
 
+
+                <a class="btn btn-small btn-warning" href="{{ URL('pegawai/'.encrypt($value->id)) }}">Ubah Data</a>
+
                 {!! Form::open(['url' => 'pegawai/' . $value->id, 'class' => 'pull-right']) !!}
                     {!! Form::hidden('_method', 'DELETE') !!}
                     {!! Form::submit('Hapus Data', ['class' => 'btn btn-danger']) !!}

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace laravel\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Requests\CreatePegawaiRequest;
-use App\Http\Controllers\Controller;
-use App\Pegawai;
-use Request;
-use Response;
-use View;
+use laravel\Http\Requests;
+use laravel\Http\Requests\CreatePegawaiRequest;
+use laravel\Http\Controllers\Controller;
+use laravel\Pegawai;
+use Request,Response,View,Input,Auth,Session,Validator,File;
+use Crypt;
 
 
 class PegawaiController extends Controller
@@ -28,20 +27,12 @@ $pegawai = Pegawai::latest('created_at')->get();
 	}
 
 
-public function show($nama,$id)
-	{
-		$pegawai = Pegawai::find($id);
-if ($pegawai === null) {
-return redirect('pegawai')->with('message', 'Data Yang Anda Masukan TIdak Ada!');   
-}
-else
-{
+    public function show($id)
+    {
 
-return view('pegawai.show', compact('pegawai'));	
 
-}
-        
-	}
+echo $decrypted = decrypt($id);
+    }
 
 
 	public function edit($id)

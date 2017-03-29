@@ -1,6 +1,6 @@
 <?php
-namespace App\Http\Controllers\Auth;
-use App\Http\Controllers\Controller;
+namespace laravel\Http\Controllers\Auth;
+use laravel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 class ForgotPasswordController extends Controller
 {
@@ -22,7 +22,7 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('adminlte::auth.passwords.email');
+        return view('auth.passwords.email');
     }
     /**
      * Create a new controller instance.

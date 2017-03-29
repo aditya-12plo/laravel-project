@@ -173,11 +173,13 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        laravel\Providers\AppServiceProvider::class,
+        laravel\Providers\AuthServiceProvider::class,
+        // laravel\Providers\BroadcastServiceProvider::class,
+        laravel\Providers\EventServiceProvider::class,
+        laravel\Providers\RouteServiceProvider::class,
+//composer untuk flash
+         Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
@@ -231,6 +233,8 @@ return [
          'Html' => Collective\Html\HtmlFacade::class,
          //untuk id generate
     'Uuid' => Webpatser\Uuid\Uuid::class,
+    //untuk file input
+    'Input' => Illuminate\Support\Facades\Input::class,
     //admin themplate
   //  'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
     ],

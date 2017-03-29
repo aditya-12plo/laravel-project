@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace laravel\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +19,7 @@ class RedirectIfAdminAuthenticated
     {
         $auth=Auth::guard('admins');
         if ($auth->check()) {
-            return redirect('/admin/home');
+            return redirect('/admin/beranda');
         }
 
         return $next($request);

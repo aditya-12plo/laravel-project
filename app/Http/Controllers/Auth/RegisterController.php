@@ -1,8 +1,8 @@
 <?php
-namespace App\Http\Controllers\Auth;
-use App\User;
+namespace laravel\Http\Controllers\Auth;
+use laravel\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use laravel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 /**
  * Class RegisterController

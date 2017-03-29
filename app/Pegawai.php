@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace laravel;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Uuids;
 
 class Pegawai extends Model
 {
-use Uuids;
+
 
 public $incrementing = false;
 protected $table = 'pegawai';

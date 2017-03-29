@@ -72,11 +72,11 @@ return [
  'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => laravel\User::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Admins::class,
+            'model' => laravel\Admins::class,
         ],
     ],
 
@@ -99,12 +99,14 @@ return [
    'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
+            'email' => 'auth.emails.password',
+            'table' => 'password_reset',
             'expire' => 60,
         ],
         'admins' => [
             'provider' => 'admins',
-            'table' => 'password_resets',
+            'email' => 'admin.auth.emails.password',
+            'table' => 'password_reset',
             'expire' => 60,
         ],
     ],

@@ -14,6 +14,7 @@
 
 <div class="login-box-body">
     <p class="login-box-msg"><h2 align="center">Administrator</h2></p>
+    <font color="red"> {{ $errors->first('email') }}</font>
 <br>
 
  <form role="form" method="POST" name="post1" id="post1" action="{{ url('admin/login') }}">
@@ -21,14 +22,13 @@
        {{ csrf_field() }}
 
       <div class="form-group has-feedback">
-        {{ Form::email('email', 'admin@admin.com', ['class' => 'form-control', 'placeholder' => 'Email','required']) }}
+        {{ Form::email('email', 'nugrohoaditya10@gmail.com', ['class' => 'form-control', 'placeholder' => 'Email','required']) }}
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-       <font color="red"> {{ $errors->first('email') }}</font>
+       
       </div>
       <div class="form-group has-feedback">
-        {{ Form::input('password', 'password', 'admin', ['class' => 'form-control', 'placeholder' => 'Password','required']) }}
+        {{ Form::input('password', 'password', 'Warakas1', ['class' => 'form-control', 'placeholder' => 'Password','required']) }}
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      <font color="red"> {{ $errors->first('password') }} </font>
       </div>
       <div class="row">
         
@@ -41,7 +41,9 @@
 </form>
 
 <br>
-    <a href="#">Lupa Password</a>
+    <a href="{{ url('/admin/password/reset') }}">
+                                    Forgot Your Password?
+                                </a>
 
   </div>
   <!-- /.login-box-body -->

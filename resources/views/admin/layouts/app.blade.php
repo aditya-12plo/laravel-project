@@ -1,87 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="id">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('htmlheader')
+    @include('admin.layouts.partials.htmlheader')
+@show
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ URL::asset('css/app.css')}}" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-</head>
-<body>
+<body class="skin-blue sidebar-mini">
+ 
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <div class="wrapper">
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-            </div>
+    @include('admin.layouts.partials.mainheader')
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guard('admins')->user())
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ Auth::guard('admins')->user()->nama }} <span class="caret"></span>
-                            </a>
+    @include('admin.layouts.partials.sidebar')
+    
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/admin/logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+        @include('admin.layouts.partials.contentheader')
 
-                                    <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @else
-                        <li><a href="{{ url('/admin') }}">Login</a></li>
-                        <li><a href="{{ url('/admin/register') }}">Register</a></li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav>
-    @yield('content')
+        <!-- Main content -->
+        <section class="content">
+            @include('admin.layouts.partials.notif')
+            <!-- Your Page Content Here -->
+            @yield('main-content')
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+
+    @include('admin.layouts.partials.footer')
+
+</div><!-- ./wrapper -->
 </div>
-<!-- Scripts -->
-<script src="{{ URL::asset('js/app.js')}}"></script>
+@section('scripts')
+    @include('admin.layouts.partials.scripts')
+@show
+
 </body>
 </html>

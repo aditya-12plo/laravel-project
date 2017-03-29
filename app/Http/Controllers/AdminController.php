@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace laravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use laravel\Http\Controllers\Controller;
 use Auth, Validator, Redirect,Response,View, Hash;
 use Illuminate\Support\Facades\Input; 
-use App\User;
+use laravel\User;
 
 
 class AdminController extends Controller

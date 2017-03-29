@@ -1,15 +1,19 @@
 <?php
 
-namespace App;
+namespace laravel;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Notifications\Notification;
+use laravel\Notifications\MyResetPassword as ResetPasswordNotification;
+use Illuminate\Notifications\Notifiable;
+use Uuids;
+
 
 class Admins extends Authenticatable
 {
 use Notifiable;
-use Uuids;
 
 public $incrementing = false;
 protected $table = 'admins';
@@ -19,7 +23,7 @@ protected $table = 'admins';
      * @var array
      */
     protected $fillable = [
-         'id','email', 'password'
+         'id','nama','email','tlp','foto', 'password'
     ];
 
     /**
@@ -30,4 +34,8 @@ protected $table = 'admins';
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function sendPasswordResetNotification($token)
+{
+    $this->notify(new ResetPasswordNotification($token));
+}
 }
